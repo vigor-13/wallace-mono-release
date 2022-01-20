@@ -26,13 +26,13 @@ _package.json_
 ## 2. Install lerna
 
 ```shell
-yarn add -W -D lerna --independent
+yarn add -W -D lerna
 ```
 
 ## 3. Setting up `lerna.json`
 
 ```shell
-yarn lerna init
+yarn lerna init --independent
 ```
 
 ```json
