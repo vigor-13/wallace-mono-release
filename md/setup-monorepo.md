@@ -26,7 +26,7 @@ _package.json_
 ## 2. Install lerna
 
 ```shell
-yarn add -W -D lerna
+yarn add -W -D lerna --independent
 ```
 
 ## 3. Setting up `lerna.json`
@@ -37,11 +37,13 @@ yarn lerna init
 
 ```json
 {
-  "version": "0.1.0",
+  "version": "independent",
   "npmClient": "yarn",
   "packages": ["packages/*"]
 }
 ```
+
+- Independent mode Lerna projects allows maintainers to increment package versions independently of each other. Each time you publish, you will get a prompt for each package that has changed to specify if it's a patch, minor, major or custom change.
 
 # References
 
