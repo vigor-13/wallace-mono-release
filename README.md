@@ -14,8 +14,10 @@ This repository is an example for monorepo release flow
 
 1. yarn & lerna
 
-   1.1. Setup monorepo ([link](md/setup-monorepo.md))
+   1.1. Monorepo와 Leran([link](md/monorepo-lerna.md))
 
-   1.2. lerna commands([link](md/lerna-commands.md))
+   1.2. Lerna와 yarn-workspaces([link](md/lerna-workspaces.md))
 
-   1.3. lerna & yarn-workspace([link](md/lerna-workspaces.md))
+   1.3. Setup monorepo ([link](md/setup-monorepo.md))
+
+   1.4. lerna commands([link](md/lerna-commands.md))
