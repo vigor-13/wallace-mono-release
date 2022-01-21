@@ -56,7 +56,7 @@
   2. 나머지 패키지 관리 요구사항(e.g. 선택적 테스트 스크립트 실행 등...)들은 Lerna를 활용해서 최적화 한다.
   3. Lerna는 버전관리, 배포와 관련된 세부적인 기능을 제공하므로 이를 활용한다.
 
-# Yanr-workspaces와 Lerna 사용법 알아보기
+# Yarn-workspaces와 Lerna 사용법 알아보기
 
 ## Yarn-workspaces
 
@@ -113,6 +113,59 @@
   }
   ```
 
+## Lerna
+
+- Lerna는 자체적으로 모노레포 기능을 제공한다.
+- Lerna를 yarn 또는 npm과 사용하는 경우 자체 모노레포 기능을 사용하며 bootstrap을 해야한다.
+- Lerna를 yarn-workspaces와 사용하는 경우 모노레포와 관련된 기능을 전적으로 yarn-workpsaces에게 의존한다.
+- Lerna의 기본 명령어 몇 가지를 살펴보자.
+
+  ```shell
+  # 모든 패키지에 공통 종속성을 설치한다.
+
+  lerna add react
+  ```
+
+  ```shell
+  # 특정 패키지에 종속성을 설치한다.
+
+  lerna add react --scope <my-package>
+  ```
+
+  ```shell
+  # 공통 종속성을 설치하고 특정 패키지에서만 버저닝을 한다.
+
+  lerna add react@16.0.0 --scope <my-package>
+  ```
+
+  ```shell
+  # 공유 종속성을 호이스팅 한다.
+
+  lerna add react -D --hoist
+  ```
+
+- Lerna에는 몇가지 필터링 옵션이 있으니 참조하도록 한다. [link](https://github.com/lerna/lerna/tree/main/core/filter-options)
+
+- Lerna의 --scope 옵션을 사용해서 특정 패키지 테스트를 실행할 수도 있다.
+
+  ```json
+  // package.json
+  {
+    ...
+    "scripts": {
+      "test": "lerna exec yarn test"
+    }
+    ...
+  }
+  ```
+
+  ```besh
+  yarn test --scope @my-project-services/*
+  yarn test --scope @my-project/web-*
+  ```
+
 # References
 
 - [Why Lerna and Yarn Workspaces is a perfect match for building mono-repos](https://doppelmutzi.github.io/monorepo-lerna-yarn-workspaces/)
+- [Monorepos By Example: Part 1](https://codeburst.io/monorepos-by-example-part-1-3a883b49047e)
+- [Monorepos By Example: Part 2](https://codeburst.io/monorepos-by-example-part-2-4153712cfa31)
