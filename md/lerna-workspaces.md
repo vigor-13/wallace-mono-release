@@ -35,10 +35,10 @@
   2. NPM + Lerna
   3. Yarn + Lerna
   4. yarn workspaces
-  5. Yarn workspaces + Lerna
+  5. **Yarn workspaces + Lerna**
 
-- 1번 방식은 가능은 하지만 굉장히 힘들 것이다.
-- 2,3번은 본질적으로 거의 차이가 없다. 단지 클라이언트로 npm을 쓸지 yarn을 쓸지 결정하는 것이 전부다.
+- 1번 방식은 가능은 하지만 굉장히 힘드므로 추천하진 않는다.
+- 2,3번은 본질적으로 거의 차이가 없다. 단지 클라이언트로 npm을 쓸지 yarn을 쓸지 결정하는 것이 전부다. 거의 Lerna 단독 사용이나 다름 없다.
 
   - yarn과 npm 중에 고민이 된다면 다음을 참고하면 도움이 될 것이다.
 
@@ -46,10 +46,72 @@
     - 표준을 따르고 싶은가 아니면 페이스북을 따르고 싶은가?
     - bootstrapping 시간이 중요한가? 그렇다면 벤치마크 결과를 참고하라.
 
-- 4번 방식은 lerna가 필요하지 않다. yarn에는 기본적으로 모노레포 기능이 탑재되어 있다. lerna와는 다르게 bootstrap 과정도 없고 전용 구성 파일도 필요하지 않다. 오직 pakcage.json에서 `private` 프로퍼티와 `workpsaces` 프로퍼티만 지정해 주면 된다.
+- 4번 방식은 Lerna가 필요하지 않다. yarn에는 기본적으로 모노레포 기능이 탑재되어 있다. Lerna와는 다르게 bootstrap 과정도 없고 전용 구성 파일도 필요하지 않다. 오직 pakcage.json에서 `private` 프로퍼티와 `workpsaces` 프로퍼티만 지정해 주면 된다.
 
 - 5번 방식은 4번과 마찬가지로 package.json 설정을하고 lerna.json에 yarn을 사용하도록 설정하면 된다. 또한 bootstrap 과정이 필요없이 yarn을 호출하면 끝이다.
 - 5번 방식에서 lerna는 의존성관리와 bootstrapping 과정을 전적으로 yarn-workspaces에 의존한다.
+- 5번 방식의 워크플로를 요약해보면 다음과 같다.
+
+  1. 모노레포와 관련된 워크플로(의존성 관리)는 전적으로 yarn-workspaces를 사용한다.
+  2. 나머지 패키지 관리 요구사항(e.g. 선택적 테스트 스크립트 실행 등...)들은 Lerna를 활용해서 최적화 한다.
+  3. Lerna는 버전관리, 배포와 관련된 세부적인 기능을 제공하므로 이를 활용한다.
+
+# Yanr-workspaces와 Lerna 사용법 알아보기
+
+## Yarn-workspaces
+
+- 패키지들간 종속성 관리외에 다른 기능을 제공하지 않는다.
+- Yarn을 기반으로 작동하기 때문에 Yarn의 기본 기능들을 모두 사용할 수 있다.
+- 모노레포 환경에서만 작동하는 몇 가지 추가 명령어가 있다.
+
+  ```shell
+  # 현재 프로젝트의 의존성 트리를 보여준다.
+
+  yarn workspaces info
+  ```
+
+  ```shell
+  # 선택한 내부 패키지의 명령어를 실행한다.
+
+  yarn workspace <package-name> <command>
+  ```
+
+  ```shell
+  # 선택한 내부 패키지에 의존성을 추가, 제거한다.
+
+  yarn workspace <package-name> add react --dev
+  yarn workspace <package-name> remove react
+  ```
+
+  ```shell
+  # 모든 패키지에 적용할 공통 의존성을 설치한다.
+
+  yarn add <some-package> -W
+  ```
+
+- 내부 패키지들간에 종속성을 추가하려면 버전 번호를 반드시 명시해야한다. 그렇지 않으면 외부 저장소에서 패키지를 찾게된다.
+
+  ```shell
+  yarn workspace @my0project/awesome-app add @my-project/awesome-components@0.1.0
+  ```
+
+- yarn-workspaces는 종속성을 해당 패키지의 node_modules에 추가하지 않고 root 경로의 node_modules에 호이스팅한다. 이때 심볼링크를 사용하여 종속성을 관리하므로 중복되는 의존성들은 한번만 설치된다.
+
+- 만약 외부 패키지가 모노레포 환경을 지원하지 않는다면 `nohoist` 기능을 사용하면 된다.
+
+  ```shell
+  // package.json
+  {
+    ...
+    "workspaces": {
+      "packages": ["packages/*"],
+      "nohoist": [
+        "**/react-native"
+      ]
+    }
+    ...
+  }
+  ```
 
 # References
 
