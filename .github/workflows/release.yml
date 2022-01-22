@@ -30,4 +30,4 @@ jobs:
           CI: true
 
       - name: Release
-        run: yarn lerna publish from-packages --major
+        run: yarn lerna publish from-packages --yes
