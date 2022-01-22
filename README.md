@@ -2,7 +2,7 @@
 
 This repository is an example for monorepo release flow
 
-## Goals
+## 목표
 
 - Setup monorepo by lerna & yarn-workspace
 - User can control packages versions (independently)
@@ -10,7 +10,7 @@ This repository is an example for monorepo release flow
 - Publish tag and packages from CI(Github Actions)
 - Publish changelog from CI(Github Actions)
 
-## Steps
+## 단계
 
 1. yarn & lerna
 
@@ -23,3 +23,7 @@ This repository is an example for monorepo release flow
    1.4. Lerna로 버전 관리하기 ([link](md/lerna-versioning.md))
 
    1.5. Lerna로 배포하기 ([link](md/lerna-publishing.md))
+
+## 참조
+
+- Git tag ([link](https://backlog.com/git-tutorial/kr/stepup/stepup4_1.html))

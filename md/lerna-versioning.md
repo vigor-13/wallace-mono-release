@@ -23,6 +23,13 @@
   lerna version
   ```
 
+  1. 태그가 지정된 이전 릴리즈 이후에 업데이트된 패키지를 식별한다.
+  2. 새 버전 입력을 위해서 propmt를 실행한다.
+  3. 새 릴리즈를 반영할 수 있도록 패키지의 메타데이터를 수정한 후 루트 및 패키지 단위로 적절한 lifecycle 스크립트를 실행한다.
+  4. 변경 사항을 커밋하고 태그를 지정한다.
+  5. 리모트 저장소에 푸시한다.
+
 # References
 
 - [Lerna Github](https://github.com/lerna/lerna/blob/main/commands/version/README.md)
+- [Git tag](https://backlog.com/git-tutorial/kr/stepup/stepup4_1.html)
