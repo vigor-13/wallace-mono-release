@@ -6,5 +6,6 @@
     "publish": {
       "registry": "https://registry.npmjs.org"
     }
-  }
+  },
+  "useWorkspaces": true
 }
