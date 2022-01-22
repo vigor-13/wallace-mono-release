@@ -22,5 +22,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wallace5796/wallace-mono-release.git"
   }
 }

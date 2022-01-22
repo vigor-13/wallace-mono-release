@@ -15,5 +15,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "5aed4f900766fa227b332d3e6b027cb6c70fc8a4"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wallace5796/wallace-mono-release.git",
+    "directory": "packages/a"
+  }
 }
