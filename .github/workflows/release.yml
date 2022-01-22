@@ -29,14 +29,6 @@ jobs:
         env:
           CI: true
 
-      - name: Configure npm
-        run: |
-          cat << EOF > "$HOME/.npmrc"
-            @wallace-mono-release:registry="https://npm.pkg.github.com"
-          EOF
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Release
         run: yarn lerna publish from-package --yes
         env:
