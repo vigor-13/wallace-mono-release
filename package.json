@@ -11,7 +11,7 @@
     "commit": "cz"
   },
   "keywords": [],
-  "author": "",
+  "author": "wallace5796",
   "license": "MIT",
   "devDependencies": {
     "commitizen": "^4.2.4",
