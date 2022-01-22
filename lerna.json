@@ -2,5 +2,9 @@
   "packages": ["packages/*"],
   "version": "independent",
   "npmClient": "yarn",
-  "registry": "https://npm.pkg.github.com"
+  "command": {
+    "publish": {
+      "registry": "https://npm.pkg.github.com"
+    }
+  }
 }
