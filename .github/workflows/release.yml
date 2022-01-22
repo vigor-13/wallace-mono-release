@@ -39,7 +39,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Release
-        run: yarn lerna publish from-packages --yes --no-verify-access --registry https://npmjs.org
+        run: yarn lerna publish from-packages --canary --no-verify-access --registry https://npmjs.org
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
