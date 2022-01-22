@@ -1,5 +1,5 @@
 {
-  "name": "@wallace5796/package-a",
+  "name": "package-a",
   "version": "0.1.6",
   "description": "",
   "main": "src/index.js",

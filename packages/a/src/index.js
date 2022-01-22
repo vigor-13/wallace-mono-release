@@ -1,3 +1,3 @@
-var a = "A6";
+var a = "A7";
 
 module.exports = a;
