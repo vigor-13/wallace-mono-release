@@ -32,7 +32,6 @@ jobs:
       - name: Configure npm
         run: |
           cat << EOF > "$HOME/.npmrc"
-            @wallace5796:registry="https://npm.pkg.github.com"
             //registry.npmjs.org/:_authToken=$NPM_TOKEN
           EOF
         env:
