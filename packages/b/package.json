@@ -18,6 +18,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/wallace5796/wallace-mono-release.git",
-    "directory": "packages/a"
+    "directory": "packages/b"
   }
 }
