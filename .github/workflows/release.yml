@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: "lts/*"
-          registry-url: "https://npm.pkg.github.com"
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile --ignore-engines
@@ -33,4 +33,5 @@ jobs:
         run: yarn lerna publish from-package --yes
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
