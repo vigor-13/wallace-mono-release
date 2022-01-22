@@ -20,4 +20,6 @@ This repository is an example for monorepo release flow
 
    1.3. Setup monorepo ([link](md/setup-monorepo.md))
 
-   1.4. lerna commands([link](md/lerna-commands.md))
+   1.4. Lerna로 버전 관리하기 ([link](md/lerna-versioning.md))
+
+   1.5. Lerna로 배포하기 ([link](md/lerna-publishing.md))

@@ -29,7 +29,7 @@
 
 # 모노레포를 구성하는 여러가지 방법들
 
-- 아래의 3가지 중 원하는 방식을 택하면 된다.
+- 아래의 5가지 중 원하는 방식을 택하면 된다.
 
   1. 수동으로 구성하기
   2. NPM + Lerna
@@ -164,8 +164,27 @@
   yarn test --scope @my-project/web-*
   ```
 
+## Leran + Yarn-wrokspaces
+
+- 모노레포의 의존성 관리를 위해서 yarn-workpsaces를 사용한다고 하더라도 여전히 Lerna가 제공하는 유틸리티는 유용하다.
+
+- 예를 들어, Lerna의 명령어를 사용해서 전체 패키지 또는 특정 패키지를 대상으로 일련의 작업(e.g. 린팅, 테스팅, 빌드 등...)을 실행할 수 있다.
+
+- 이러한 보조 명령어를 통해서 Lerna는 Yarn-workspaces와 상호보완적인 관계를 유지할 수 있다.
+
+- 버전 관리의 측면에서도 Lerna는 유용하다. Lerna는 2가지 모드로 버전을 관리할 수 있다.
+
+  - fixed 모드 : 모든 패키지가 동일한 버전으로 관리됨
+  - independent 모드 : 각각의 패키지가 독립적인 버전으로 관리됨
+
+- 배포단계에서도 Lerana는 유용하다. 마지막 릴리즈 이후 변경된 패키지를 퍼블리싱 할 수 있다.
+
+  ```besh
+  lerna publish
+  ```
+
+- independent 모드에서 publish 명령어를 사용할 때 버전 범핑에 영향을 줄 수 있는 옵션들이 있다.
+
 # References
 
 - [Why Lerna and Yarn Workspaces is a perfect match for building mono-repos](https://doppelmutzi.github.io/monorepo-lerna-yarn-workspaces/)
-- [Monorepos By Example: Part 1](https://codeburst.io/monorepos-by-example-part-1-3a883b49047e)
-- [Monorepos By Example: Part 2](https://codeburst.io/monorepos-by-example-part-2-4153712cfa31)
