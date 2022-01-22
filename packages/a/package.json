@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wallace5796/wallace-mono-release.git",
+    "url": "git+https://github.com/wallace5796/wallace-mono-release.git",
     "directory": "packages/a"
   }
 }
